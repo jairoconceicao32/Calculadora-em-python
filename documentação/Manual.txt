@@ -1,0 +1,8 @@
+Essa calculadora de momento é toda controlada por letras, ou seja, cada letra representa uma função do menu.
+1. Iniciar: Inicia a calculadora permitindo fazer os cálculos.
+Nessa opção é apresentado um campo, o qual pede para informar um número.
+O segundo campo pede para informar a operação desejada (observação: esse menu é controlado por números de momento, que representam as 6 operações matemáticas)
+Após informar a operação caso a operação seje necessária mais de um número para compor a mesma, mostrará o resultado da mesma na tela.
+2. Ver histórico: essa opção mostra o histórico de resultados da calculadora, caso não haja exibirá uma mensagem.
+3. Limpar histórico: Essa opção limpa o histórico da calculadora, nela possui um sistema de confirmações para caso o usuário se arrependa e deseja manter o histórico da mesma.
+4. Sair: essa opção permite que o usuário feche o programa, também tem o sistema de confirmações.

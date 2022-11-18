@@ -1,0 +1,14 @@
+Calculadora, um mine projetinho que ainda está em desenvolvimento:
+adicionadas 6 operações matemáticas.
+Corrigido bug com arredondamento de números.
+Adicionado tratamento de eceção para divisão por 0 com sua respectiva mensagem.
+Adicionados respectivos tratamentos de ecessões, tanto para números inteiros quanto para números flutuantes.
+Refeito o sistema de operações matemáticas.
+Feito um menu para as operações matemáticas na qual o usuário pode escolher, esse menu pode sofrer alterações ao longo do projeto.
+Alterado os parâmetros das operações.
+Criada a opção de ver histórico.
+Em desenvolvimento, estádisponível uma função para copiar ou não o histórico para a área de transferência.
+Corrigido bug de quando não tinha nada no histórico ele perguntava se gostaríamos de copiar o histórico para a área de transferência.
+Criada a opção de limpar o histórico.
+Adicionada mensagem para quando não ouver nada para limpar o histórico.
+Adicionado o arquivo na pasta do projeto "requirements.txt", rodando o comando pip install -r "requirements.txt" na pasta do projeto, ele vai instalar bibliotécas esternas do python para poder executar o código.
