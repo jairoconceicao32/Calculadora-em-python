@@ -37,21 +37,21 @@ def iniciar():
         operar = leiaInt("Informe qual a operação que deseja fazer:\n1- para adção:\n2- para subtração\n3- para multiplicação:\n4 para divisão:\n5 para potência\n6- para raíz quadrada")
         if operar == 1:
             n2 = leiaInt("Qual o valor?")
-            print(f"O resultado da adção foi {operacoes.somar(n1, n2)}")
             result = operacoes.somar(n1, n2)
+            print(f"O resultado da adção foi {result}")
             historico.append(result)
             break
         if operar == 2:
             n2 = leiaInt("Qual o valor?")
-            print(f"O resultado da subtração foi: {operacoes.subtrair(n1, n2)}")
             result = operacoes.subtrair(n1, n2)
+            print(f"O resultado da subtração foi: {result}")
             historico.append(result)
             break
         if operar == 3:
             n2 = leiaInt("Qual o valor?")
-            print(f"O resultado da multiplicação foi: {operacoes.multiplicar(n1, n2)}")
             result = operacoes.multiplicar(n1, n2)
             historico.append(result)
+            print(f"O resultado da multiplicação foi: {result}")
             break
         if operar == 4:
             n2 = leiaInt("Qual o valor?")
@@ -60,17 +60,17 @@ def iniciar():
                 print("O resultado não será transferido para memória pois o resultado da divisão não é válido")
                 break
             else:
-                print(f"O resultado da divisão foi: {operacoes.dividir(n1, n2)}")
+                print(f"O resultado da divisão foi: {result}")
                 historico.append(result)
                 break
         if operar == 5:
             n2 = leiaInt("Qual o valor?")
-            print(f"O resultado da potência foi: {operacoes.potencia(n1, n2)}")
             result = operacoes.potencia(n1, n2)
+            print(f"O resultado da potência foi: {result}")
             historico.append(result)
             break
         if operar == 6:
-            print(f"O resultado da raíz foi: {operacoes.raiz(n1)}")
             result = operacoes.raiz(n1)
+            print(f"O resultado da raíz foi: {result}")
             historico.append(result)
             break
