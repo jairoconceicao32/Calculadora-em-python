@@ -1,3 +1,5 @@
+import math
+
 def somar(y, z):
     return y + z
 
@@ -20,3 +22,6 @@ def potencia(y, z):
 
 def raiz(z):
     return round(z ** 0.5, 0)
+
+def fatorial(x):
+    return math.factorial(x)

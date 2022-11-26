@@ -2,6 +2,7 @@ from funcoes.menus import operacoes
 from funcoes.menus import resultados
 
 global result
+global n1
 historico = []
 
 def leiaInt(msg):
@@ -34,7 +35,7 @@ def iniciar():
     print("Vamos calcular!")
     while True:
         n1 = leiaInt("Qual o valor desejado?")
-        operar = leiaInt("Informe qual a operação que deseja fazer:\n1- para adção:\n2- para subtração\n3- para multiplicação:\n4 para divisão:\n5 para potência\n6- para raíz quadrada")
+        operar = leiaInt("Informe qual a operação que deseja fazer:\n1- para adção:\n2- para subtração\n3- para multiplicação:\n4 para divisão:\n5 para potência\n6- para raíz quadrada\n7- Para fatorial")
         if operar == 1:
             n2 = leiaInt("Qual o valor?")
             result = operacoes.somar(n1, n2)
@@ -72,5 +73,13 @@ def iniciar():
         if operar == 6:
             result = operacoes.raiz(n1)
             print(f"O resultado da raíz foi: {result}")
+            historico.append(result)
+            break
+        if operar==7:
+            if n1 <0:
+                print("O valor pode ser apenas números positivos.")
+                continue
+            result = operacoes.fatorial(n1)
+            print(f"O fatorial de {n1} é: {result}")
             historico.append(result)
             break
