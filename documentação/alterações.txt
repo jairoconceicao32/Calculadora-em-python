@@ -13,3 +13,4 @@ Criada a opção de limpar o histórico.
 Adicionada mensagem para quando não ouver nada para limpar o histórico.
 Adicionado o arquivo na pasta do projeto "requirements.txt", rodando o comando pip install -r "requirements.txt" na pasta do projeto, ele vai instalar bibliotécas esternas do python para poder executar o código.
 Criada função de fatorial.
+Adicionadas confirmações para resultados na memória
