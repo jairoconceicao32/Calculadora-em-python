@@ -1,5 +1,6 @@
 from funcoes.menus import operacoes
 from funcoes.menus import resultados
+from funcoes.menus import confirmacoes
 
 global result
 global n1
@@ -13,7 +14,7 @@ def leiaInt(msg):
             print("ERRO: por favor digite um número inteiro válido")
             continue
         except(KeyboardInterrupt):
-            print("O usuário preferiu não digitar este valor.")
+            print("Opção inválida")
             return 0
         else:
             return n
@@ -36,24 +37,42 @@ def iniciar():
     while True:
         n1 = leiaInt("Qual o valor desejado?")
         operar = leiaInt("Informe qual a operação que deseja fazer:\n1- para adção:\n2- para subtração\n3- para multiplicação:\n4 para divisão:\n5 para potência\n6- para raíz quadrada\n7- Para fatorial")
-        if operar == 1:
+        if operar == "1":
             n2 = leiaInt("Qual o valor?")
             result = operacoes.somar(n1, n2)
             print(f"O resultado da adção foi {result}")
-            historico.append(result)
-            break
+            c = confirmacoes.confirmacao("Deseja armazenar o resultado no histórico? Utilize s para sim e n para não")
+            if c:
+                historico.append(result)
+                print("Resultado armazenado!")
+                break
+            else:
+                print("Canselado")
+                break
         if operar == 2:
             n2 = leiaInt("Qual o valor?")
             result = operacoes.subtrair(n1, n2)
             print(f"O resultado da subtração foi: {result}")
-            historico.append(result)
-            break
+            c = confirmacoes.confirmacao("Deseja armazenar o resultado no histórico? Utilize s para sim e n para não")
+            if c:
+                historico.append(result)
+                print("Resultado armazenado!")
+                break
+            else:
+                print("Canselado")
+                break
         if operar == 3:
             n2 = leiaInt("Qual o valor?")
             result = operacoes.multiplicar(n1, n2)
-            historico.append(result)
             print(f"O resultado da multiplicação foi: {result}")
-            break
+            c = confirmacoes.confirmacao("Deseja armazenar o resultado no histórico? Utilize s para sim e n para não")
+            if c:
+                historico.append(result)
+                print("Resultado armazenado!")
+                break
+            else:
+                print("Canselado")
+                break
         if operar == 4:
             n2 = leiaInt("Qual o valor?")
             result = operacoes.dividir(n1, n2)
@@ -62,24 +81,48 @@ def iniciar():
                 break
             else:
                 print(f"O resultado da divisão foi: {result}")
+            c = confirmacoes.confirmacao("Deseja armazenar o resultado no histórico? Utilize s para sim e n para não")
+            if c:
                 historico.append(result)
+                print("Resultado armazenado!")
+                break
+            else:
+                print("Canselado")
                 break
         if operar == 5:
             n2 = leiaInt("Qual o valor?")
             result = operacoes.potencia(n1, n2)
             print(f"O resultado da potência foi: {result}")
-            historico.append(result)
-            break
+            c = confirmacoes.confirmacao("Deseja armazenar o resultado no histórico? Utilize s para sim e n para não")
+            if c:
+                historico.append(result)
+                print("Resultado armazenado!")
+                break
+            else:
+                print("Canselado")
+                break
         if operar == 6:
             result = operacoes.raiz(n1)
             print(f"O resultado da raíz foi: {result}")
-            historico.append(result)
-            break
+            c = confirmacoes.confirmacao("Deseja armazenar o resultado no histórico? Utilize s para sim e n para não")
+            if c:
+                historico.append(result)
+                print("Resultado armazenado!")
+                break
+            else:
+                print("Canselado")
+                break
         if operar==7:
             if n1 <0:
                 print("O valor pode ser apenas números positivos.")
                 continue
             result = operacoes.fatorial(n1)
             print(f"O fatorial de {n1} é: {result}")
-            historico.append(result)
-            break
+            c = confirmacoes.confirmacao("Deseja armazenar o resultado no histórico? Utilize s para sim e n para não")
+            if c:
+                historico.append(result)
+                print("Resultado armazenado!")
+                break
+            else:
+                print("Canselado")
+                break
