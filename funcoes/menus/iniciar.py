@@ -37,7 +37,7 @@ def iniciar():
     while True:
         n1 = leiaInt("Qual o valor desejado?")
         operar = leiaInt("Informe qual a operação que deseja fazer:\n1- para adção:\n2- para subtração\n3- para multiplicação:\n4 para divisão:\n5 para potência\n6- para raíz quadrada\n7- Para fatorial")
-        if operar == "1":
+        if operar == 1:
             n2 = leiaInt("Qual o valor?")
             result = operacoes.somar(n1, n2)
             print(f"O resultado da adção foi {result}")
