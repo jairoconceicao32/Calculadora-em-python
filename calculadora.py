@@ -1,7 +1,6 @@
-from funcoes.menus import  principal
-import tempo
+from menu.principal import *
+from  funcoes.mensagens import *
 
-print(f"Bem-vindo a calculadora! Agora são {tempo.hora()}")
-print("É hora de calcular!")
+mensagem("Bem-vindo a calculadora!\n")
 
-principal.menu()
+menu()

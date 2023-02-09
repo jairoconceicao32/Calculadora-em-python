@@ -20,8 +20,8 @@ def dividir(y, z):
 def potencia(y, z):
     return y ** z
 
-def raiz(z):
-    return round(z ** 0.5, 0)
+def raiz(y, z):
+    return y // z
 
 def fatorial(x):
     return math.factorial(x)

@@ -14,3 +14,11 @@ Adicionada mensagem para quando não ouver nada para limpar o histórico.
 Adicionado o arquivo na pasta do projeto "requirements.txt", rodando o comando pip install -r "requirements.txt" na pasta do projeto, ele vai instalar bibliotécas esternas do python para poder executar o código.
 Criada função de fatorial.
 Adicionadas confirmações para resultados na memória
+Corrigido bug com raízes.
+Restruturações no código:
+Refeito o menu de operações matemáticas, como dito a algum tempo esse menu sofreria alterações, e atendendo a uma sujestão, foram adicionados os respectivos cinais que representam as operações matemáticas.
+Criado um sub menu para o histórico.
+Agora é possível ver além dos resultados feitos ver de qual a operação e respectivos números  ao qual ele pertence.
+Com essas modificações, foi atualizado o manual da calculadora.
+Removido de momento, a opção de copiar o histórico para a área de transferência.
+Removido o script de tempo.
