@@ -22,3 +22,7 @@ Agora é possível ver além dos resultados feitos ver de qual a operação e re
 Com essas modificações, foi atualizado o manual da calculadora.
 Removido de momento, a opção de copiar o histórico para a área de transferência.
 Removido o script de tempo.
+Opção de copiar o histórico de volta!
+Modificações no histórico:
+Agora quando o histórico for copiado, não terá mais cinais de pontuações entre ele, apenas a mensagem com a operação e resultado da operação.
+Foram feitas algumas modificações na opção de ver o histórico, agora quando mostrado ele é convertido para string, para remoção de possíveis cinais de pontuações indesejados, (Observação: ele ainda precisa ser ajustado).

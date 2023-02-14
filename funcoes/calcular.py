@@ -24,10 +24,11 @@ def calculando():
             mensagem(f"O resultado entre {n1} e {n2} foi: {result}")
             c = confirmar("Deseja passar os valores para o histórico? Dijite s para sim e n para não")
             if c:
-                operacoes.append("A soma entre")
-                operacoes.append(n1)
-                operacoes.append("e")
-                operacoes.append(n2)
+                historico.append("A adção resultante entre os números asseguir foi:")
+                historico.append(n1)
+                historico.append("Mais,")
+                historico.append(n2)
+                historico.append("igual")
                 historico.append(result)
                 mensagem("Operação adicionada!")
                 break
@@ -40,10 +41,11 @@ def calculando():
             mensagem(f"O resultado da subtração entre {n1} e {n2} foi: {result}")
             c = confirmar("Deseja passar os valores para o histórico? Dijite s para sim e n para não")
             if c:
-                operacoes.append("A subtração entre")
-                operacoes.append(n1)
-                operacoes.append("e")
-                operacoes.append(n2)
+                historico.append("A Subtração resultante entre os números asseguir foi:")
+                historico.append(n1)
+                historico.append("Menos")
+                historico.append(n2)
+                historico.append("igual")
                 historico.append(result)
                 mensagem("Operação adicionada!")
                 break
@@ -56,10 +58,11 @@ def calculando():
             mensagem(f"O resultado da multiplicação entre {n1} e {n2} foi: {result} ")
             c = confirmar("Deseja passar os valores para o histórico? Dijite s para sim e n para não")
             if c:
-                operacoes.append("A multiplicação entre")
-                operacoes.append(n1)
-                operacoes.append("e")
-                operacoes.append(n2)
+                historico.append("A Multiplicação resultante entre os números asseguir foi:")
+                historico.append(n1)
+                historico.append("Vezes")
+                historico.append(n2)
+                historico.append("igual")
                 historico.append(result)
                 mensagem("Operação adicionada!")
                 break
@@ -72,10 +75,11 @@ def calculando():
             mensagem(f"O resultado da divisão entre {n1} e {n2} foi: {result}")
             c = confirmar("Deseja passar os valores para o histórico? Dijite s para sim e n para não")
             if c:
-                operacoes.append("A divisão entre")
-                operacoes.append(n1)
-                operacoes.append("e")
-                operacoes.append(n2)
+                historico.append("A divisão resultante entre os números asseguir foi:")
+                historico.append(n1)
+                historico.append("Dividido")
+                historico.append(n2)
+                historico.append("igual")
                 historico.append(result)
                 mensagem("Operação adicionada!")
                 break
@@ -88,10 +92,11 @@ def calculando():
             mensagem(f"O resultado da potenciação entre {n1} e {n2} foi: {result}")
             c = confirmar("Deseja passar os valores para o histórico? Dijite s para sim e n para não")
             if c:
-                operacoes.append("A potenciação entre")
-                operacoes.append(n1)
-                operacoes.append("e")
-                operacoes.append(n2)
+                historico.append("A potenciação resultante entre os números asseguir foi:")
+                historico.append(n1)
+                historico.append("Elevada")
+                historico.append(n2)
+                historico.append("igual")
                 historico.append(result)
                 mensagem("Operação adicionada!")
                 break
@@ -104,10 +109,11 @@ def calculando():
             mensagem(f"O resultado da raízentre {n1} e {n2} foi: {result}")
             c = confirmar("Deseja passar os valores para o histórico? Dijite s para sim e n para não")
             if c:
-                operacoes.append("A raíz entre")
-                operacoes.append(n1)
-                operacoes.append("e")
-                operacoes.append(n2)
+                historico.append("A Raíz resultante entre os números asseguir foi:")
+                historico.append(n1)
+                historico.append("Raíz")
+                historico.append(n2)
+                historico.append("igual")
                 historico.append(result)
                 mensagem("Operação adicionada!")
                 break
@@ -122,8 +128,9 @@ def calculando():
             mensagem(f"O fatorial de {n1} foi: {result}")
             c = confirmar("Deseja passar os valores para o histórico? Dijite s para sim e n para não")
             if c:
-                operacoes.append("O fatorial de")
-                operacoes.append(n1)
+                historico.append("O fatorial de")
+                historico.append(n1)
+                historico.append("igual")
                 historico.append(result)
                 mensagem("Operação adicionada!")
                 break

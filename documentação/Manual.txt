@@ -1,7 +1,7 @@
 Essa calculadora de momento é toda controlada por letras, ou seja, cada letra representa uma função do menu.
 1. Calcular C:
 Nessa opção é apresentado um campo, ao qual o usuário precisa informar um valor
-O segundo campo é o menu das operações matemáticas, agora controlada pelos cinais matemáticos!
+O segundo campo é o menu das operações matemáticas, agora controlado pelos cinais das operações!
 O terceiro campo é para informar o valor a ser calculado.
 Após isso, vai exibir o resultado da operação feita na tela.
 2. Histórico H:
