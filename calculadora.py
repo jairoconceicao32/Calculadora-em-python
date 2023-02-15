@@ -1,4 +1,5 @@
 from  funcoes.mensagens import *
+from funcoes.operacoes import *
 import wx
 import sys
 
@@ -9,7 +10,7 @@ class janela(wx.Dialog):
 		label1=wx.StaticText(self, label="&1º valor")
 		self.valor1=wx.TextCtrl(self)
 		labelEscolha=wx.StaticText(self, label="Escolha a operação")
-		listaOperações=["Somar", "Subtrair"]
+		listaOperações=["Somar", "Subtrair", "Multiplicar", "Dividir", "Potência", "Raíz", "Fatorial"]
 		self.escolha=wx.ComboBox(self, choices=listaOperações, style=wx.CB_READONLY)
 		self.escolha.SetValue("Somar")
 		label2=wx.StaticText(self, label="&2º valor")
@@ -33,11 +34,29 @@ class janela(wx.Dialog):
 			return
 		operação=self.escolha.GetSelection()
 		if operação==0:#Soma
-			resultado=n1+n2
+			resultado=somar(n1, n2)
 			wx.MessageBox(f"O resultado foi {resultado}", "resultado")
 		elif operação==1:#subtrair
-			resultado=n1-n2
+			resultado=subtrair(n1, n2)
 			wx.MessageBox(f"O resultado foi {resultado}", "Resultado")
+		elif operação ==2:#Multiplicação
+			resultado=multiplicar(n1, n2)
+			wx.MessageBox(f"O resultado foi {resultado}", "resultado")
+		elif operação==3:#Divisão
+			resultado=dividir(n1, n2)
+			if resultado==None:#Verifica se um dos valores da divisão é zero e exibe uma mensagem de erro ao usuário.
+				wx.MessageBox("Não é possível dividir por zero", "erro", wx.ICON_ERROR)
+			else:
+				wx.MessageBox(f"O resultado foi {resultado}", "resultado")
+		elif operação==4:#Potenciação
+			resultado=potencia(n1, n2)
+			wx.MessageBox(f"O resultado foi {resultado}", "resultado")
+		elif operação==5:#Raíz
+			resultado=raiz(n1, n2)
+			wx.MessageBox(f"O resultado foi {resultado}", "resultado")
+		elif operação==6:#Fatorial
+			resultado=fatorial(n1)
+			wx.MessageBox(f"O resultado foi {resultado}", "resultado")
 
 app=wx.App()
 calculadora=janela(None, title="Calculadora")
