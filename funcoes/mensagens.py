@@ -1,3 +1,6 @@
+from accessible_output2 import outputs
+mensagem=outputs.auto.Auto().speak
+
 def leiaInt(msg):
     while True:
         try:
@@ -26,7 +29,3 @@ def leiaFloat(msg):
 
 def escrever(msg):
     return str(input(msg))
-
-
-def mensagem(msg):
-    return print(msg)
