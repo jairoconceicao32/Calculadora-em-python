@@ -1,7 +1,8 @@
-from  funcoes.mensagens import *
 from funcoes.operacoes import *
 import wx
 import sys
+from accessible_output2 import outputs
+mensagem=outputs.auto.Auto().speak
 
 mensagem("Bem-vindo a calculadora!")
 class janela(wx.Dialog):
@@ -10,7 +11,15 @@ class janela(wx.Dialog):
 		label1=wx.StaticText(self, label="&1º valor")
 		self.valor1=wx.TextCtrl(self)
 		labelEscolha=wx.StaticText(self, label="Escolha a operação")
-		listaOperações=["Somar", "Subtrair", "Multiplicar", "Dividir", "Potência", "Raíz", "Fatorial"]
+		listaOperações=[
+			"Somar",
+			"Subtrair",
+			"Multiplicar",
+			"Dividir",
+			"Potência"
+			"Raíz",
+			"Fatorial"
+]
 		self.escolha=wx.ComboBox(self, choices=listaOperações, style=wx.CB_READONLY)
 		self.escolha.SetValue("Somar")
 		label2=wx.StaticText(self, label="&2º valor")
