@@ -16,7 +16,7 @@ class janela(wx.Dialog):
 			"Subtrair",
 			"Multiplicar",
 			"Dividir",
-			"Potência"
+			"Potência",
 			"Raíz",
 			"Fatorial"
 ]
