@@ -2,8 +2,8 @@ from funcoes.operacoes import *
 import wx
 import sys
 from accessible_output2 import outputs
-mensagem=outputs.auto.Auto().speak
 
+mensagem=outputs.auto.Auto().speak
 mensagem("Bem-vindo a calculadora!")
 class janela(wx.Dialog):
 	def __init__(self, *args, **kwargs):
@@ -109,14 +109,28 @@ class janela(wx.Dialog):
 				wx.MessageBox("Os números precisam ser iguais para que o fatorial possa ser calculado", "erro", wx.ICON_ERROR)
 
 	def hi(self, evento):
-		d = wx.Dialog(self, title="Histórico")
-		label=wx.StaticText(d, label="histórico")
-		mostrar=wx.TextCtrl(d, style=wx.TE_MULTILINE|wx.TE_READONLY|wx.TE_DONTWRAP)
-		mostrar.AppendText("histórico de operações")
+		d = wx.Dialog(self, title="Histórico de operações")
+		label=wx.StaticText(d, label="Histórico de operações")
+		self.mostrar=wx.TextCtrl(d, style=wx.TE_MULTILINE|wx.TE_READONLY|wx.TE_DONTWRAP)
 		for h in self.historico:
-			mostrar.AppendText("\n"+h)
+			self.mostrar.AppendText("\n"+h)
+		apagarHistorico=wx.Button(d, label="&Apagar histórico")
+		apagarHistorico.Bind(wx.EVT_BUTTON, self.apagarH)
 		voltar = wx.Button(d, wx.ID_CANCEL, label="Voltar")
 		d.ShowModal()
+
+	def apagarH(self, evento):
+		c = wx.MessageBox("Deseja apagar o histórico de operações.", "Mensagem", wx.ICON_QUESTION|wx.YES_NO)
+		if c == 2:
+			h=self.mostrar.GetValue()
+			if len(h) ==0:
+				wx.MessageBox("O histórico de operações está vazio", "Mensagem")
+			else:
+				self.mostrar.Clear()
+				wx.MessageBox("Histórico de operações apagado!", "Apagado")
+		else:
+			wx.MessageBox("Você não deseja apagar o histórico... Então tchau pra você!", "Mensagem")
+
 
 app=wx.App()
 calculadora=janela(None, title="Calculadora")
