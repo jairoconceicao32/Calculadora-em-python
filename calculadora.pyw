@@ -2,6 +2,33 @@ from funcoes.operacoes import *
 import wx
 import sys
 from accessible_output2 import outputs
+import threading
+from threading import Thread
+from traceback import format_exception
+
+def trataExceptPrograma(type, description, traceback):
+	tipoErro=type
+	erroDesc=description
+	erroTraceback=traceback
+	erroFormatado=format_exception(tipoErro, erroDesc, erroTraceback)
+	dialog=wx.Dialog(None, title="erro do programa")
+	textoErro=wx.TextCtrl(dialog, style=wx.TE_MULTILINE|wx.TE_READONLY|wx.TE_DONTWRAP, value="")
+	for linha in erroFormatado:
+		textoErro.AppendText(linha)
+	dialog.ShowModal()
+sys.excepthook=trataExceptPrograma
+def trataExceptThread(info):
+	nomeErro=info.exc_type.__name__
+	descErro=info.exc_value
+	tb=info.exc_traceback
+	erro=format_exception(nomeErro, descErro, tb)
+	dialogErro=wx.Dialog(None, title="erro do programa em uma Thread")
+	mostraErro=wx.TextCtrl(dialogErro, style=wx.TE_MULTILINE|wx.TE_READONLY|wx.TE_DONTWRAP, value="")
+	for linhaErro in erro:
+		mostraErro.AppendText(linhaErro)
+	dialogErro.ShowModal()
+	sys.exit()
+threading.excepthook=trataExceptThread
 
 mensagem=outputs.auto.Auto().speak
 mensagem("Bem-vindo a calculadora!")
@@ -112,13 +139,25 @@ class janela(wx.Dialog):
 		d = wx.Dialog(self, title="Histórico de operações")
 		label=wx.StaticText(d, label="Histórico de operações")
 		self.mostrar=wx.TextCtrl(d, style=wx.TE_MULTILINE|wx.TE_READONLY|wx.TE_DONTWRAP)
+		self.mostrar.AppendText("histórico de operações")
 		for h in self.historico:
 			self.mostrar.AppendText("\n"+h)
 		apagarHistorico=wx.Button(d, label="&Apagar histórico")
+		salvar=wx.Button(d, label="salvar histórico em arquivo")
+		salvar.Bind(wx.EVT_BUTTON, self.salvaHistorico)
 		apagarHistorico.Bind(wx.EVT_BUTTON, self.apagarH)
 		voltar = wx.Button(d, wx.ID_CANCEL, label="Voltar")
 		d.ShowModal()
 
+	def salvaHistorico(self, evento):
+		d=wx.FileDialog(None)
+		d.SetMessage("salvar como")
+		d.ShowModal()
+		caminho=d.GetPath()
+		arquivo=open(caminho, "w")
+		for h in self.historico:
+			arquivo.write(h)
+		arquivo.close()
 	def apagarH(self, evento):
 		c = wx.MessageBox("Deseja apagar o histórico de operações.", "Mensagem", wx.ICON_QUESTION|wx.YES_NO)
 		if c == 2:
