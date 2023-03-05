@@ -26,3 +26,10 @@ Opção de copiar o histórico de volta!
 Modificações no histórico:
 Agora quando o histórico for copiado, não terá mais cinais de pontuações entre ele, apenas a mensagem com a operação e resultado da operação.
 Foram feitas algumas modificações na opção de ver o histórico, agora quando mostrado ele é convertido para string, para remoção de possíveis cinais de pontuações indesejados, (Observação: ele ainda precisa ser ajustado).
+
+Funções da calculadora migradas a wx.
+Agora temos dois campos respectivamente, juntamente com caixa de celeção para as operações.
+Agora o histórico é mostrado em formato de diálogo, tendo as seguintes opções dentro dele:
+Apagar histórico: Apaga o histórico de operações.
+Salvar histórico em arquivo: essa opção nos permite salvar o histórico em um arquivo, dijitando o caminho para o mesmo, juntamente com a extenção do mesmo.
+Voltar: essa opção nos permite voltar ao menu anterior da calculadora.

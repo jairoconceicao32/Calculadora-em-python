@@ -101,9 +101,10 @@ class janela(wx.Dialog):
 			if resultado==None:#Verifica se um dos valores da divisão é zero e exibe uma mensagem de erro ao usuário.
 				wx.MessageBox("Não é possível dividir por zero", "erro", wx.ICON_ERROR)
 			else:
-				a = wx.MessageBox(f"O resultado foi {resultado}. Deseja adicionar ao histórico?", "Resultado", wx.ICON_QUESTION|wx.YES_NO) #Exibe a mensagem, e questiona ao usuário se ele quer mesmo adicionar ao histórico a operação e o resultado.
+				resultado_ii=int(resultado)
+				a = wx.MessageBox(f"O resultado foi {resultado_ii}. Deseja adicionar ao histórico?", "Resultado", wx.ICON_QUESTION|wx.YES_NO) #Exibe a mensagem, e questiona ao usuário se ele quer mesmo adicionar ao histórico a operação e o resultado.
 				if a == 2: #Verificação para adicionar o resultado ao histórico
-					self.historico.append(f"O resultado da divisão entre {n1} e {n2} foi: {resultado}")
+					self.historico.append(f"O resultado da divisão entre {n1} e {n2} foi: {resultado_ii}")
 					wx.MessageBox("Operação adicionada!", "Mensagem")
 				else: #Mensagem exibida caso o usuário decida não adicionar ao histórico de resultados.
 					wx.MessageBox("O resultado não será adicionado ao histórico", "Mensagem")
@@ -139,9 +140,8 @@ class janela(wx.Dialog):
 		d = wx.Dialog(self, title="Histórico de operações")
 		label=wx.StaticText(d, label="Histórico de operações")
 		self.mostrar=wx.TextCtrl(d, style=wx.TE_MULTILINE|wx.TE_READONLY|wx.TE_DONTWRAP)
-		self.mostrar.AppendText("histórico de operações")
 		for h in self.historico:
-			self.mostrar.AppendText("\n"+h)
+			self.mostrar.AppendText(h+"\n")
 		apagarHistorico=wx.Button(d, label="&Apagar histórico")
 		salvar=wx.Button(d, label="salvar histórico em arquivo")
 		salvar.Bind(wx.EVT_BUTTON, self.salvaHistorico)
@@ -158,6 +158,7 @@ class janela(wx.Dialog):
 		for h in self.historico:
 			arquivo.write(h+"\n")
 		arquivo.close()
+
 	def apagarH(self, evento):
 		c = wx.MessageBox("Deseja apagar o histórico de operações.", "Mensagem", wx.ICON_QUESTION|wx.YES_NO)
 		if c == 2:
