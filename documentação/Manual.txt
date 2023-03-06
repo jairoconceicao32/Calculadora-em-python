@@ -1,18 +1,25 @@
-Essa calculadora de momento é toda controlada por letras, ou seja, cada letra representa uma função do menu.
-1. Calcular C:
-Nessa opção é apresentado um campo, ao qual o usuário precisa informar um valor
-O segundo campo é o menu das operações matemáticas, agora controlado pelos cinais das operações!
-O terceiro campo é para informar o valor a ser calculado.
-Após isso, vai exibir o resultado da operação feita na tela.
-2. Histórico H:
-Nessa opção é nos apresentada opções relacionadas ao histórico. São elas:
-2.1. Ver histórico V:
-Nos permite ver o histórico das operações feitas bem como os resultados.
-2.2. Copiar o histórico C:
-Nos permite copiar o histórico para a área de transferência.
-2.3. Limpar histórico L:
-Limpa o histórico, apagando ele por completo.
-2.4. Retornar ao menu principal R:
-Volta ao menu principal.
-3. Sair:
-Fecha a calculadora.
+Manual de utilização:
+1. Primeiro e segundo campo podem ser acessados atravéz dos seus respectivos atalhos:
+Aut 1 vai para o primeiro campo.
+Aut 2 vai para o segundo campo.
+Para navegar entre a calculadora, utiliza-se tabe.
+Entre os campos indo com tabe, está a lista de operações que é uma caixa de combinação, que pode se utilizar as cetas para navegar entre as operações matemáticas.
+1.1 Calcular:
+Se dijitado os valores, fará o respectivo cálculo.
+1.2 Histórico:
+Abre um diálogo com o histórico com algumas opções bem como mostrando o histórico.
+1.3 Desligar calculadora:
+Fecha o programa.
+2. Atalhos rápidos:
+Calcular  botão  Alt+c: após dijitar os valores e celecionar a operação que deseja, precionando essa combinação o cálculo será feito.
+Histórico  botão  Alt+h: precionando essa combinação abrirá o histórico.
+Dentro do histórico:
+Apagar histórico  botão  Alt+a: Apagará o histórico de operações se ouvér coisas a serem apagadas no histórico.
+3. Histórico:
+O histórico de operações pode ser lido atravéz de um campo a onde estarão armazenados os resultados fornecidos pelo usuário no momento de adicionálos ao histórico.
+Opções do histórico:
+Ao navegar com tabe até o histórico, após lê-lo, precionando tabe vai haver algumas opções que são elas:
+Apagar histórico: apaga o histórico de operações, haverá um questionamento se caso você deseja apagar o histórico.
+Salvar histórico em arquivo: essa opção permite que você possa salvar o seu histórico de operações em um arquivo.
+Voltar: volta ao menu anterior da calculadora.
+Conforme forem feitas modificações, esse manual pode sofrer alterações.
