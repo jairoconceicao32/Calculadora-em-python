@@ -46,7 +46,8 @@ class janela(wx.Dialog):
 			"Dividir",
 			"Potência",
 			"Raíz",
-			"Fatorial"
+			"Fatorial",
+			"Porcentagem"
 ]
 		self.escolha=wx.ComboBox(self, choices=listaOperações, style=wx.CB_READONLY)
 		self.escolha.SetValue("Somar")
@@ -135,6 +136,19 @@ class janela(wx.Dialog):
 					wx.MessageBox("O resultado não será adicionado ao histórico", "Mensagem")
 			else:
 				wx.MessageBox("Os números precisam ser iguais para que o fatorial possa ser calculado", "erro", wx.ICON_ERROR)
+		elif operação==7:
+			resultado=n1*n2/100
+			resultado2 = int(resultado)
+			a = wx.MessageBox(f"O resultado foi {resultado2}. Deseja adicionar ao histórico?", "Resultado", wx.ICON_QUESTION|wx.YES_NO) #Exibe a mensagem, e questiona ao usuário se ele quer mesmo adicionar ao histórico a operação e o resultado.
+			if a == 2: #Verificação para adicionar o resultado ao histórico
+				self.historico.append(f"{n2}% de  {n1} é: {resultado2}")
+				wx.MessageBox("Operação adicionada!", "Mensagem")
+			else: #Mensagem exibida caso o usuário decida não adicionar ao histórico de resultados.
+				wx.MessageBox("O resultado não será adicionado ao histórico", "Mensagem")
+
+
+
+
 
 	def hi(self, evento):
 		d = wx.Dialog(self, title="Histórico de operações")
