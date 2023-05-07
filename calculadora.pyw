@@ -167,12 +167,14 @@ class janela(wx.Dialog):
 		d=wx.FileDialog(None)
 		d.SetMessage("salvar como")
 		d.ShowModal()
-		caminho=d.GetPath()
-		arquivo=open(caminho, "w")
-		for h in self.historico:
-			arquivo.write(h+"\n")
-		arquivo.close()
-
+		try:
+			caminho=d.GetPath()
+			arquivo=open(caminho, "w")
+			for h in self.historico:
+				arquivo.write(h+"\n")
+			arquivo.close()
+		except:
+			pass
 	def apagarH(self, evento):
 		c = wx.MessageBox("Deseja apagar o histórico de operações.", "Mensagem", wx.ICON_QUESTION|wx.YES_NO)
 		if c == 2:
