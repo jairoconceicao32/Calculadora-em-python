@@ -183,6 +183,7 @@ class janela(wx.Dialog):
 				wx.MessageBox("O histórico de operações está vazio", "Mensagem")
 			else:
 				self.mostrar.Clear()
+				self.historico=[]
 				wx.MessageBox("Histórico de operações apagado!", "Apagado")
 		else:
 			wx.MessageBox("Você não deseja apagar o histórico... Então tchau pra você!", "Mensagem")
