@@ -1,4 +1,5 @@
-from funcoes.operacoes import *
+from classes.operacoes import *
+from time import *
 import wx
 import sys
 from accessible_output2 import outputs
@@ -32,10 +33,11 @@ threading.excepthook=trataExceptThread
 
 mensagem=outputs.auto.Auto().speak
 mensagem("Bem-vindo a calculadora!")
+sleep(1)
 class janela(wx.Dialog):
 	def __init__(self, *args, **kwargs):
 		super().__init__(*args, **kwargs)
-		self.historico = [	]
+		self.historico = []
 		label1=wx.StaticText(self, label="&1º valor")
 		self.valor1=wx.TextCtrl(self)
 		labelEscolha=wx.StaticText(self, label="Escolha a operação")
@@ -74,7 +76,7 @@ class janela(wx.Dialog):
 			return
 		operação=self.escolha.GetSelection()
 		if operação==0:#Soma
-			resultado=somar(n1, n2)
+			resultado=Operacao.adcao(n1, n2)
 			a = wx.MessageBox(f"O resultado foi {resultado}. Deseja adicionar ao histórico?", "Resultado", wx.ICON_QUESTION|wx.YES_NO) #Exibe a mensagem, e questiona ao usuário se ele quer mesmo adicionar ao histórico a operação e o resultado.
 			if a == 2: #Verificação para adicionar o resultado ao histórico
 				self.historico.append(f"O resultado da adição entre {n1} e {n2} foi: {resultado}")
@@ -82,7 +84,7 @@ class janela(wx.Dialog):
 			else: #Mensagem exibida caso o usuário decida não adicionar ao histórico de resultados.
 				wx.MessageBox("O resultado não será adicionado ao histórico", "Mensagem")
 		elif operação==1:#subtrair
-			resultado=subtrair(n1, n2)
+			resultado=Operacao.subtrair(n1, n2)
 			a = wx.MessageBox(f"O resultado foi {resultado}. Deseja adicionar ao histórico?", "Resultado", wx.ICON_QUESTION|wx.YES_NO) #Exibe a mensagem, e questiona ao usuário se ele quer mesmo adicionar ao histórico a operação e o resultado.
 			if a == 2: #Verificação para adicionar o resultado ao histórico
 				self.historico.append(f"O resultado da subtração entre {n1} e {n2} foi: {resultado}")
@@ -90,7 +92,7 @@ class janela(wx.Dialog):
 			else: #Mensagem exibida caso o usuário decida não adicionar ao histórico de resultados.
 				wx.MessageBox("O resultado não será adicionado ao histórico", "Mensagem")
 		elif operação ==2:#Multiplicação
-			resultado=multiplicar(n1, n2)
+			resultado=Operacao.multiplicar(n1, n2)
 			a = wx.MessageBox(f"O resultado foi {resultado}. Deseja adicionar ao histórico?", "Resultado", wx.ICON_QUESTION|wx.YES_NO) #Exibe a mensagem, e questiona ao usuário se ele quer mesmo adicionar ao histórico a operação e o resultado.
 			if a == 2: #Verificação para adicionar o resultado ao histórico
 				self.historico.append(f"O resultado da multiplicação entre {n1} e {n2} foi: {resultado}")
@@ -98,7 +100,7 @@ class janela(wx.Dialog):
 			else: #Mensagem exibida caso o usuário decida não adicionar ao histórico de resultados.
 				wx.MessageBox("O resultado não será adicionado ao histórico", "Mensagem")
 		elif operação==3:#Divisão
-			resultado=dividir(n1, n2)
+			resultado=Operacao.dividir(n1, n2)
 			if resultado==None:#Verifica se um dos valores da divisão é zero e exibe uma mensagem de erro ao usuário.
 				wx.MessageBox("Não é possível dividir por zero", "erro", wx.ICON_ERROR)
 			else:
@@ -110,7 +112,7 @@ class janela(wx.Dialog):
 				else: #Mensagem exibida caso o usuário decida não adicionar ao histórico de resultados.
 					wx.MessageBox("O resultado não será adicionado ao histórico", "Mensagem")
 		elif operação==4:#Potenciação
-			resultado=potencia(n1, n2)
+			resultado=Operacao.potenciacao(n1, n2)
 			a = wx.MessageBox(f"O resultado foi {resultado}. Deseja adicionar ao histórico?", "Resultado", wx.ICON_QUESTION|wx.YES_NO) #Exibe a mensagem, e questiona ao usuário se ele quer mesmo adicionar ao histórico a operação e o resultado.
 			if a == 2: #Verificação para adicionar o resultado ao histórico
 				self.historico.append(f"O resultado da potenciação entre {n1} e {n2} foi: {resultado}")
@@ -118,8 +120,9 @@ class janela(wx.Dialog):
 			else: #Mensagem exibida caso o usuário decida não adicionar ao histórico de resultados.
 				wx.MessageBox("O resultado não será adicionado ao histórico", "Mensagem")
 		elif operação==5:#Raíz
-			resultado=raiz(n1, n2)
-			a = wx.MessageBox(f"O resultado foi {resultado}. Deseja adicionar ao histórico?", "Resultado", wx.ICON_QUESTION|wx.YES_NO) #Exibe a mensagem, e questiona ao usuário se ele quer mesmo adicionar ao histórico a operação e o resultado.
+			resultado=Operacao.rais(n1, n2)
+			resultado2 = int(resultado)
+			a = wx.MessageBox(f"O resultado foi {resultado2}. Deseja adicionar ao histórico?", "Resultado", wx.ICON_QUESTION|wx.YES_NO) #Exibe a mensagem, e questiona ao usuário se ele quer mesmo adicionar ao histórico a operação e o resultado.
 			if a == 2: #Verificação para adicionar o resultado ao histórico
 				self.historico.append(f"O resultado da raíz entre {n1} e {n2} foi: {resultado}")
 				wx.MessageBox("Operação adicionada!", "Mensagem")
@@ -127,7 +130,7 @@ class janela(wx.Dialog):
 				wx.MessageBox("O resultado não será adicionado ao histórico", "Mensagem")
 		elif operação==6:#Fatorial
 			if n1 == n2: #Verificação para ver se os dois números dijitados são iguais em caso sim, o fatorial será feito.
-				resultado=fatorial(n1)
+				resultado=Operacao.fatorial(n1)
 				a = wx.MessageBox(f"O resultado foi {resultado}. Deseja adicionar ao histórico?", "Resultado", wx.ICON_QUESTION|wx.YES_NO) #Exibe a mensagem, e questiona ao usuário se ele quer mesmo adicionar ao histórico a operação e o resultado.
 				if a == 2: #Verificação para adicionar o resultado ao histórico
 					self.historico.append(f"O resultado do fatorial de {n1} foi: {resultado}")
@@ -137,7 +140,7 @@ class janela(wx.Dialog):
 			else:
 				wx.MessageBox("Os números precisam ser iguais para que o fatorial possa ser calculado", "erro", wx.ICON_ERROR)
 		elif operação==7:
-			resultado=n1*n2/100
+			resultado = Operacao.porcento(n1, n2)
 			resultado2 = int(resultado)
 			a = wx.MessageBox(f"O resultado foi {resultado2}. Deseja adicionar ao histórico?", "Resultado", wx.ICON_QUESTION|wx.YES_NO) #Exibe a mensagem, e questiona ao usuário se ele quer mesmo adicionar ao histórico a operação e o resultado.
 			if a == 2: #Verificação para adicionar o resultado ao histórico

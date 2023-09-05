@@ -34,3 +34,4 @@ Apagar histórico: Apaga o histórico de operações.
 Salvar histórico em arquivo: essa opção nos permite salvar o histórico em um arquivo, dijitando o caminho para o mesmo, juntamente com a extenção do mesmo.
 Voltar: essa opção nos permite voltar ao menu anterior da calculadora.
 Agora quando a divisão é feita, o resultado é convertido para inteiro.
+Modificada de função para classe o sistema de operações.
